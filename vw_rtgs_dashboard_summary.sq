@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW r20master.VW_RTGS_DASHBOARD_SUMMARY AS
+CREATE OR REPLACE VIEW DEO1.VW_RTGS_DASHBOARD_SUMMARY AS
 SELECT 
     t.transfer_id,
     t.transaction_ref,
@@ -10,8 +10,8 @@ SELECT
     t.status,
     t.transfer_date
 FROM 
-    r20master.rtgs_transfers t
+   DEO1.rtgs_transfers t
 JOIN 
-    r20master.accounts a ON t.account_id = a.account_id
+    DEO1.accounts a ON t.account_id = a.account_id
 JOIN 
-    r20master.customers c ON a.customer_id = c.customer_id;
+  DEO1.customers c ON a.customer_id = c.customer_id;
