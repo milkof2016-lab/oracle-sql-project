@@ -1,0 +1,17 @@
+CREATE OR REPLACE VIEW r20master.VW_RTGS_DASHBOARD_SUMMARY AS
+SELECT 
+    t.transfer_id,
+    t.transaction_ref,
+    c.customer_id,
+    c.customer_name,
+    a.account_number,
+    t.amount,
+    t.currency,
+    t.status,
+    t.transfer_date
+FROM 
+    r20master.rtgs_transfers t
+JOIN 
+    r20master.accounts a ON t.account_id = a.account_id
+JOIN 
+    r20master.customers c ON a.customer_id = c.customer_id;
